@@ -4,15 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-"lint":"tsc",
-"build":"tsc -p",
-"start":"node dist/index",
-"dev":"tsc-watch --onSuccess \"pnpm start\""
+    "lint": "tsc",
+    "build": "tsc -p",
+    "start": "node dist/index",
+    "dev": "tsc-watch --onSuccess \"pnpm start\""
   },
-  
   "devDependencies": {
-"@workspace/db":"workspace:*",
-"@workspace/typescript-config":"workspace:*",
+    "@workspace/db": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",

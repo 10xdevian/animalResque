@@ -78,19 +78,30 @@ app.post("api/v1/signin", async (req, res) => {
   });
 });
 
+// todo is to add middleware without login you cant post
 app.post("api/v1/post", async (req, res) => {
   const { title, description, image, placeName, address, location } = req.body;
 
-  // const post = await prisma.post.create({
-  //   data: {
-  //     title,
-  //     description,
-  //     image,
-  //     placeName,
-  //     address,
-  //     location,
-  //   },
-  // });
+   const post = await prisma.post.create({
+     data: {
+       title,
+       description,
+       image,
+       placeName,
+       address,
+      latitude :  location.langitude,
+      logibtude : location.longitude,
+      //@ts-ignore // fixed after addining middleware 
+	    userId : req.user.id
+     },
+   });
+
+
+res.status(200).json({
+message :"Post is Created"
+post
+})
+
 });
 
 app.get("/", (req, res) => {

@@ -98,7 +98,7 @@ app.post("api/v1/post", async (req, res) => {
 
 
 res.status(200).json({
-message :"Post is Created"
+message :"Post is Created",
 post
 })
 

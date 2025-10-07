@@ -17,7 +17,7 @@ app.use(cors());
 app.post("api/v1/signup", async (req, res) => {
   const { email, name, username, password } = req.body;
 
-  const existingUser = await prisma.user.findUnique({
+  const existingUser = await prisma.user.findFirst({
     where: {
       username,
     },
@@ -47,7 +47,7 @@ app.post("api/v1/signup", async (req, res) => {
 app.post("api/v1/signin", async (req, res) => {
   const { username, password } = req.body;
 
-  const existingUser = await prisma.user.findUnique({
+  const existingUser = await prisma.user.findFirst({
     where: {
       username,
     },
@@ -89,9 +89,9 @@ app.post("api/v1/post", async (req, res) => {
        image,
        placeName,
        address,
-      latitude :  location.langitude,
-      logibtude : location.longitude,
-      //@ts-ignore // fixed after addining middleware 
+      latitude :  location.latitude,
+      longitude : location.longitude,
+      //@ts-ignore // fixed after addining middleware
 	    userId : req.user.id
      },
    });

@@ -90,7 +90,7 @@ app.post("api/v1/post", async (req, res) => {
        placeName,
        address,
       latitude :  location.latitude,
-      longitude : location.longitude,
+      logibtude : location.longitude,
       //@ts-ignore // fixed after addining middleware
 	    userId : req.user.id
      },
